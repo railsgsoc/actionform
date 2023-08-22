@@ -1,4 +1,4 @@
-class CreateProfiles < ActiveRecord::Migration
+class CreateProfiles < ActiveRecord::Migration[6.1]
   def change
     create_table :profiles do |t|
       t.string :twitter_name

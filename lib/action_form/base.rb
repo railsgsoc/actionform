@@ -1,10 +1,11 @@
 module ActionForm
   class Base
     include ActiveModel::Model
+    include ActiveModel::Validations::Callbacks
     include FormHelpers
     extend ActiveModel::Callbacks
 
-    define_model_callbacks :save, only: [:after]
+    define_model_callbacks :save
     after_save :update_form_models
 
     delegate :persisted?, :model_name, :to_key, :to_param, :to_partial_path, to: :model
